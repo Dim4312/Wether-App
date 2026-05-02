@@ -110,6 +110,11 @@ city_screen.tkraise()
 # Set the application icon
 app.iconbitmap("images/icons/Weather_main.ico")
 
+icon_image = Image.open("images/icons/Weather_main.png")
+icon = ImageTk.PhotoImage(icon_image)
+
+app.iconphoto(False, icon)
+
 app.bind("<Configure>", resize_starting_image)
 app.after(10, lambda: [
     starting_image.configure(size=(720, 480)),
