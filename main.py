@@ -108,8 +108,7 @@ app.grid_columnconfigure(0, weight=1)
 city_screen.tkraise()
 
 # Set the application icon
-icon = ImageTk.PhotoImage(Image.open("images/icons/Weather_main.ico"))
-app.iconphoto(False, icon)
+app.iconbitmap("images/icons/Weather_main.ico")
 
 app.bind("<Configure>", resize_starting_image)
 app.after(10, lambda: [
