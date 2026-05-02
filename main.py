@@ -59,25 +59,25 @@ app.geometry("720x480+370+200")
 app.title("Weather App")
 
 #city screen stuff
-city_screen = ctk.CTkFrame(app, width=720, height=480, fg_color="transparent")
+city_screen = ctk.CTkFrame(app, width=720, height=480, fg_color="transparent", corner_radius=0, border_width=0)
 
 starting_image = ctk.CTkImage(light_image=Image.open("images/test.png"),
                                   dark_image=Image.open("images/test.png"),
                                   size=(720, 480))
 
-city_image_label = ctk.CTkLabel(city_screen, image=starting_image, text="")
+city_image_label = ctk.CTkLabel(city_screen, image=starting_image, text="", fg_color="transparent")
 city_image_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-city_option = ctk.CTkOptionMenu(city_screen, values=["Search for a city first..."], fg_color="green", command=city_pick)
+city_option = ctk.CTkOptionMenu(city_screen, values=["Search for a city first..."], fg_color="green", command=city_pick, corner_radius=0)
 city_option.pack(padx=20, pady=20)
 
-entry = ctk.CTkEntry(city_screen, placeholder_text="Enter city name here")
+entry = ctk.CTkEntry(city_screen, placeholder_text="Enter city name here",corner_radius=0)
 entry.pack(padx=20, pady=20)
 
-search_button = ctk.CTkButton(city_screen, text="Search🔍", command=city_input)
+search_button = ctk.CTkButton(city_screen, text="Search🔍", command=city_input, corner_radius=0)
 search_button.pack(padx=20, pady=20)
 
-c_or_f_button = ctk.CTkSegmentedButton(city_screen, values=["Cº", "Fº"], width=50, height=50, command=get_temperature_unit)
+c_or_f_button = ctk.CTkSegmentedButton(city_screen, values=["Cº", "Fº"], width=50, height=50, command=get_temperature_unit, corner_radius=0)
 c_or_f_button.set("Cº")
 c_or_f_button.pack(padx=20, pady=20)
 
@@ -92,9 +92,9 @@ weather_image_label = ctk.CTkLabel(wether_screen, image=wether_image, text="")
 weather_image_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
-return_button = ctk.CTkButton(wether_screen, text="Return to city search", command=city_screen.tkraise)
+return_button = ctk.CTkButton(wether_screen, text="Return to city search", command=city_screen.tkraise, corner_radius=0)
 
-temp_label = ctk.CTkLabel(wether_screen, text="Search for city First", fg_color="green")
+temp_label = ctk.CTkLabel(wether_screen, text="Search for city First", fg_color="green", corner_radius=0)
 temp_label.pack(padx=20, pady=20)
 
 return_button.pack(padx=20, pady=20)
@@ -108,8 +108,10 @@ app.grid_columnconfigure(0, weight=1)
 city_screen.tkraise()
 
 # Set the application icon
+#windows
 app.iconbitmap("images/icons/Weather_main.ico")
 
+#mac
 icon_image = Image.open("images/icons/Weather_main.png")
 icon = ImageTk.PhotoImage(icon_image)
 
