@@ -58,8 +58,12 @@ app = ctk.CTk()
 app.geometry("720x480+370+200")
 app.title("Weather App")
 
+
+
 #city screen stuff
 city_screen = ctk.CTkFrame(app, width=720, height=480, fg_color="transparent", corner_radius=0, border_width=0)
+
+city_screen.grid_columnconfigure(0, weight=1)
 
 starting_image = ctk.CTkImage(light_image=Image.open("images/test.png"),
                                   dark_image=Image.open("images/test.png"),
@@ -69,17 +73,17 @@ city_image_label = ctk.CTkLabel(city_screen, image=starting_image, text="", fg_c
 city_image_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 city_option = ctk.CTkOptionMenu(city_screen, values=["Search for a city first..."], fg_color="green", command=city_pick, corner_radius=0)
-city_option.pack(padx=20, pady=20)
+city_option.grid(row = 0, column = 0,padx=20, pady=20,)
 
 entry = ctk.CTkEntry(city_screen, placeholder_text="Enter city name here",corner_radius=0)
-entry.pack(padx=20, pady=20)
+entry.grid(padx=20, pady=20)
 
 search_button = ctk.CTkButton(city_screen, text="Search🔍", command=city_input, corner_radius=0)
-search_button.pack(padx=20, pady=20)
+search_button.grid(padx=20, pady=20)
 
 c_or_f_button = ctk.CTkSegmentedButton(city_screen, values=["Cº", "Fº"], width=50, height=50, command=get_temperature_unit, corner_radius=0)
 c_or_f_button.set("Cº")
-c_or_f_button.pack(padx=20, pady=20)
+c_or_f_button.grid(padx=20, pady=20)
 
 #wether screen stuff
 wether_screen = ctk.CTkFrame(app, width=720, height=480, fg_color="transparent")
