@@ -1,42 +1,89 @@
 # Weather App
 
-A secure, desktop-based graphical user interface (GUI) application that allows users to search for cities worldwide and retrieve precise current weather data. Built for a Python Honors Project, this application communicates with the Open-Meteo API to fetch geocoding and weather forecast data.
+A secure, modern desktop GUI application for searching cities worldwide and retrieving real-time weather data. Built as part of a Python Honors Project, the Weather App emphasizes security, usability, and a polished user interface.
+
+## Table of Contents
+
+- [Features](#features)
+- [Demo](#demo)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Author](#author)
 
 ## Features
 
-- **Security Verification:** Console-based login sequence requiring an alphanumeric password before the GUI launches.
-- **Dynamic City Search:** Utilizes the Open-Meteo Geocoding API to find cities and process precise coordinates.
-- **Real-Time Weather Data:** Fetches and displays current temperature metrics.
-- **Unit Conversion:** Easily toggle between Celsius (Cº) and Fahrenheit (Fº) using segmented buttons.
-- **Search History:** Tracks recent cities using parallel lists memory structures.
-- **Modern UI:** Built with `customtkinter` for a polished, dark/light-mode compatible interface.
+- **Security Verification**  
+  Console-based login sequence requiring an alphanumeric password (minimum 4 characters) before launching the GUI.
+- **World City Search**  
+  Quickly search cities around the globe with auto-suggest powered by the Open-Meteo Geocoding API.
+- **Real-Time Weather Data**  
+  Displays up-to-date temperature information.
+- **Unit Conversion**  
+  Easily toggle between Celsius (°C) and Fahrenheit (°F).
+- **Search History**  
+  Automatically tracks recently searched cities in memory.
+- **Modern UI**  
+  Utilizes `customtkinter` for a polished interface and (optional) dark/light mode compatibility.
+
+## Demo
+
+<!-- If you have a screenshot or GIF, add it here like below: -->
+<!-- ![Weather App Demo](images/demo.gif) -->
 
 ## Prerequisites
 
-Ensure you have Python 3.x installed along with the following required libraries:
+- Python 3.x
+
+### Required Libraries
 
 - `customtkinter`
 - `requests`
 - `Pillow`
 
-You can install the dependencies via pip:
+## Installation
 
-pip install customtkinter requests pillow
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/Dim4312/Wether-App.git
+   cd Wether-App
+   ```
 
-Project Structure
-main.py - The core application script handling the user login, GUI setup, and event routing.
-api_functions.py - Contains functions bridging to the Open-Meteo API for fetching city coordinates and weather forecasts.
-functions.py - Contains helper tools, such as the Celsius to Fahrenheit mathematical conversion.
-images/ - Directory for storing graphic assets (test.png, wether_background.png) and application icons.
+2. **Install dependencies:**
+   ```sh
+   pip install customtkinter requests pillow
+   ```
 
-Usage
-Run the application through your terminal or IDE:
-## python main.py
-Interact with the console to bypass the security check. (Hint: Make sure your username is not blocked and your password is at least 4 alphanumeric characters.)
-Once the GUI loads, enter a city name into the text box and click Search.
-Select the correct geographic location from the dropdown menu.
-Use the segmented toggle to switch between Cº and Fº, and view the updated temperature on the weather screen.
+## Project Structure
 
-Author
-Dmytro Vizir
-Developed as part of the Python I Honors Project.
+```
+main.py            # Core application: login, GUI setup, event routing
+api_functions.py   # API calls for city geo-coordinates & weather data
+functions.py       # Helper utilities (e.g., Celsius ↔ Fahrenheit conversion)
+images/            # Graphic assets (icons, backgrounds)
+```
+
+## Usage
+
+1. **Start the application in your Terminal or IDE:**
+   ```sh
+   python main.py
+   ```
+
+2. **Security Verification:**  
+   Enter an eligible username and an alphanumeric password (at least 4 characters) in the console to proceed.
+
+3. **Using the App:**
+   - Enter a city name and click **Search**
+   - Select the correct location from the dropdown (if multiple results)
+   - Switch temperature units with the toggle as desired
+
+## Author
+
+Developed by **Dmytro Vizir**  
+Part of the Python I Honors Project
+
+---
+
+*Feel free to contribute or suggest improvements via pull requests or issues!*
