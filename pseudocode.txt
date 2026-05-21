@@ -1,0 +1,85 @@
+PSEUDOCODE: Weather Application
+
+INPUT PHASE:
+    DISPLAY security prompt
+    LOOP until valid credentials entered:
+        INPUT username
+        INPUT password
+        IF username in blocked_users OR username is empty:
+            DISPLAY error message
+            CONTINUE to next iteration
+        END IF
+        IF password is alphanumeric AND length >= 4:
+            DISPLAY welcome message
+            BREAK from loop
+        ELSE:
+            DISPLAY invalid password message
+        END IF
+    END LOOP
+
+INITIALIZATION PHASE:
+    SET temp_unit = "Cº"
+    SET city_call = empty dictionary
+    SET saved_city = empty list
+    CREATE parallel lists: recent_cities_names, recent_cities_coords
+
+CREATE USER INTERFACE:
+    INITIALIZE CTk application window (720x480)
+    CREATE city_screen frame with search interface
+    CREATE weather_screen frame with weather display
+    STACK frames for screen switching
+
+PROCESS PHASE - MAIN LOOP:
+    WHILE application is running:
+        IF user enters city name AND clicks search:
+            CALL city_input()
+                QUERY API with city name
+                IF results found:
+                    POPULATE dropdown with city options
+                ELSE:
+                    DISPLAY "City not found"
+                END IF
+        END IF
+
+        IF user selects city from dropdown:
+            CALL city_pick(selected_choice)
+                CLEAR saved_city list
+                EXTRACT latitude, longitude, name from selection
+                APPEND latitude and longitude to saved_city
+                INSERT city name at beginning of recent_cities_names
+                INSERT coordinates at beginning of recent_cities_coords
+                IF recent_cities_names length > 5:
+                    REMOVE oldest city from parallel lists
+                END IF
+                CALL get_city_weather()
+            END CALL
+        END IF
+
+        IF user toggles temperature unit:
+            CALL get_temperature_unit(selected_value)
+                UPDATE temp_unit global variable
+            END CALL
+        END IF
+
+        IF user selects city AND temperature unit is set:
+            CALL get_city_weather()
+                QUERY weather API using saved coordinates
+                IF temp_unit == "Cº":
+                    DISPLAY current temperature in Celsius
+                ELSE:
+                    CONVERT temperature to Fahrenheit using c_to_f()
+                    DISPLAY converted temperature
+                END IF
+                SWITCH to weather_screen display
+            END CALL
+        END IF
+
+        IF user clicks return button:
+            SWITCH back to city_screen
+        END IF
+    END WHILE
+
+OUTPUT PHASE:
+    DISPLAY weather information on weather_screen
+    DISPLAY error messages as needed
+    MAINTAIN search history in parallel lists

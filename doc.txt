@@ -1,0 +1,105 @@
+main.py
+
+"""
+Name: Dmytro Vizir
+Date: 05/21/2026
+Reflection:
+Something that surprised me as I worked on this project was how seamlessly
+CustomTkinter handles GUI elements alongside live web API requests.
+A challenge I had this week was formatting the nested JSON API data into a readable format
+and managing parallel lists for search history.
+No one really helped me with this project this or any other week.
+An adjective that describes how I am feeling about my project is "proud" because
+I built a fully functional user-facing application from scratch.
+If I had more time to work on this project, I would add a 7-day forecast graph and dynamic background images.
+"""
+
+# Console login required to meet Rubric: While loop, Alphanumeric string test, Escape sequences, Comma output, 'in' Keyword
+    # Complex conditional with AND, NOT, and Search (in)
+    # Alphanumeric check and length check
+
+# Global Variables
+
+# Parallel Lists demonstrating Advanced Data Types (Append, Insert, Remove, Access)
+
+# Functions
+
+    """
+    Sets the global temperature unit based on the segmented button choice.
+    args:
+        value (str): The value selected from the UI button ("Cº" or "Fº")
+    returns:
+        None
+    """
+
+    """
+    Retrieves the city input from the entry box and populates the dropdown menu using the API.
+    args:
+        None
+    returns:
+        None
+    """
+# Checking for blank input
+# Conditional structure and error fallback
+# List comprehension to process data
+
+    """
+    Fetches the weather JSON from the API using coordinates and updates the GUI label.
+    args:
+        None
+    returns:
+        None
+    """
+# Access parallel lists
+
+# Basic conditional for temperature formatting
+
+    """
+    Processes the selected city from the dropdown, manages parallel history lists, and triggers weather fetch.
+    args:
+        choice (str): The formatted string of the selected city from the dropdown menu.
+    returns:
+        None
+    """
+   # List methods: clear, append, access
+   # Parallel Lists Management (Insert and Remove)
+# Application and UI Setup
+
+# City Selection Screen Structure
+# Weather Display Screen Structure
+# For Loop managing Layout Grids
+# Finalizing Layout and App Iteration Loop
+# Starts the main execution loop
+
+functions.py
+
+    """
+    Converts a temperature from Celsius to Fahrenheit.
+    args:
+        celsius (float): The temperature in degrees Celsius
+    returns:
+        fahrenheit (float): The calculated temperature in degrees Fahrenheit
+    """
+    # math operator converting unit
+
+api_functions.py
+
+    """
+    Queries the open-meteo API to find details about a searched city.
+    args:
+        name (str): The name of the city to search for
+    returns:
+        cities (dict): A dictionary mapping index integers to city data tuples
+    """
+    # Try block handles overall connection issues with the web API
+    # Inner try block handles KeyError if "results" is missing (meaning city is invalid)
+
+ """
+    Fetches the 7-day forecast data utilizing the city's coordinates.
+    args:
+        latitude (float): The geographical latitude of the city
+        longitude (float): The geographical longitude of the city
+    returns:
+        dictionary: A JSON parsed dictionary containing current and forecast weather data
+    """
+    # Uses formatted strings to inject variables into the API URL seamlessly
