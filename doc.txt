@@ -1,5 +1,5 @@
 main.py
-
+------------------------------------------------
 """
 Name: Dmytro Vizir
 Date: 05/21/2026
@@ -70,9 +70,9 @@ If I had more time to work on this project, I would add a 7-day forecast graph a
 # For Loop managing Layout Grids
 # Finalizing Layout and App Iteration Loop
 # Starts the main execution loop
-
+------------------------------------------------
 functions.py
-
+------------------------------------------------
     """
     Converts a temperature from Celsius to Fahrenheit.
     args:
@@ -81,9 +81,9 @@ functions.py
         fahrenheit (float): The calculated temperature in degrees Fahrenheit
     """
     # math operator converting unit
-
+------------------------------------------------
 api_functions.py
-
+------------------------------------------------
     """
     Queries the open-meteo API to find details about a searched city.
     args:
